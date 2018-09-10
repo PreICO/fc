@@ -8,16 +8,11 @@ message(STATUS "Configuring project fc located in: ${CMAKE_CURRENT_SOURCE_DIR}")
 set(CMAKE_AUTOMOC OFF)
 
 # Setup module path to make visible used CMake extensions
-list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/GitVersionGen")
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/CMakeModules")
 
 include(GetPrerequisites)
 include(VersionMacros)
 include(SetupTargetMacros)
-include(GetGitRevisionDescription)
-
-get_git_head_revision(GIT_REFSPEC FC_GIT_REVISION_SHA)
-get_git_unix_timestamp(FC_GIT_REVISION_UNIX_TIMESTAMP)
 
 set(DEFAULT_HEADER_INSTALL_DIR include/\${target})
 set(DEFAULT_LIBRARY_INSTALL_DIR lib/)
